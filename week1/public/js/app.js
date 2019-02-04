@@ -28,16 +28,16 @@ function getData() {
     })
     .then(data => {
       console.log(data);
-      element = document.getElementById("test");
+      element = document.getElementById("list");
       element.innerHTML = `
-      <h1>Shootings in NYC</h1>
       ${data
         .map((item, i) =>
           `
     <div class="incident">
     <p>case number:${item.incident_key}</p>
     <p>location:${item.boro}</p>
-    <p>Death:${item.statistical_murder_flag}</p>
+
+    <p>Death:${item.statistical_murder_flag ? 'Yes' : 'No'}</p>
     <p>Victim age: ${item.vic_age_group}</p>
     </div>
   `.trim()
