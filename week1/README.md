@@ -55,10 +55,7 @@ To run the Prettier use the code below
 
 ## Build With
 
--   [OpenIntel](https://openintel.nl/) - OpenIntel
--   [D3](https://d3js.org/) - D3
 -   [Prettier](https://prettier.io/docs/en/options.html) - Prettier.io - Linter
--   [Observablehq](https://beta.observablehq.com) - Observablehq gebruikt voor visuals
 
 ## Data formating
 
@@ -87,28 +84,10 @@ With in on the inside of the values array
 ```
 
 ## Visualization
-For the visualization we used four different types of charts and designs. Through out our multiple designs we want to create a funnel effect. Global data at the start and in the end very specific data about a country.
-
-Here we went for a bubble chart to show the massive size of .com in comparison to other TLD's.
-In this visualization you can clearly see that .nl and .ru are way larger in size then any other country based TLD.
-![Center](https://github.com/MartijnReeuwijk/OpenIntel/blob/master/assets/images/bubbel.png)
-
-Here we show to where the TLD are hosted/registered.
-We show how foainstace .nl is split
-![Donut](https://github.com/MartijnReeuwijk/OpenIntel/blob/master/assets/images/piechart.png)
-
-In the Sunburst chart we show you what a country makes based on the sales on the national TLD's.
-![Sunburst](https://github.com/MartijnReeuwijk/OpenIntel/blob/master/assets/images/visual-youp.svg)
-
-In this population chart we show how the population is divided by the population.
-Here we show if the population was divided the same way as an countries TLD's
-![Population](https://github.com/MartijnReeuwijk/OpenIntel/blob/master/assets/images/chart_inwoners.svg)
 
 ## Authors
 
 -   **Martijn Reeuwijk** - [MartijnReeuwijk](https://github.com/MartijnReeuwijk)
--   **Jesse Dijkman** - [JesseDijkman](https://github.com/jesseDijkman1)
--   **Youp Schouten** - [YoupSchouten](https://github.com/SlodderWolf)
 
 
 ## License
@@ -116,7 +95,3 @@ Here we show if the population was divided the same way as an countries TLD's
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments and Thanks
-
--   Datavisual squad
--   Thanks to [D3](https://bost.ocks.org/mike/) Mike Bostock
--   What the world eats from Nationalgeographic [Natgeo](https://www.nationalgeographic.com/what-the-world-eats/)
