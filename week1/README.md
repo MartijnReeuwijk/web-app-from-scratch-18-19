@@ -1,6 +1,6 @@
-# Openintel
+# NYC Shootings
 
-This is a visualization of the data from the Openintel dataset web
+Here is the data from the NYC police api related to shootings in New york city
 
 # Tabel of content
 - [Openintel](#openintel)
@@ -34,17 +34,13 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
--   `git@github.com:MartijnReeuwijk/OpenIntel.git`
--   `cd OpenIntel`
+-   `git@github.com:MartijnReeuwijk/web-app-from-scratch-18-19.git`
+-   `cd web-app-from-scratch-18-19`
 -   `npm install`
 
 ## Running
 
-For now its just a CLI client app
-Just run the "app" by using this line of code inside the correct folder
-Our port is a default of 5000.
-
--   `Npm start`
+Local hosting is not needed.
 
 ## Linting
 
@@ -59,31 +55,49 @@ To run the Prettier use the code below
 
 ## Data formating
 
-### Data formating
-
-The data we got from Openintel was clean and in a good readable format however we did change it a bit to better fit our needs.
-We counted all the TLD and added them together to get a total of a single TLD. We also added the total values form a TLD.
+The data from the API is very clear and easy to use underneath this is an example of the API's output.
+It doesnt need any changing for the data i'am going to use.
 
 ### Data output example
 ##### Standard use object
 This is an example on how the data looks.
+Not all the data is present in all the different cases.
 ```
-nl: Array(31)
-0: {date: "2016-04-01T00:00:00.000Z", values: Array(50), country: "nl", all: Array(6), total: 3329761}
-1: {date: "2016-05-01T00:00:00.000Z", values: Array(50), country: "nl", all: Array(6), total: 3337435}
-2: {date: "2016-06-01T00:00:00.000Z", values: Array(50), country: "nl", all: Array(6), total: 3342944}
-3: {date: "2016-07-01T00:00:00.000Z", values: Array(50), country: "nl", all: Array(6), total: 3350057}
-4: {date: "2016-08-01T00:00:00.000Z", values: Array(50), country: "nl", all: Array(7), total: 3353996}
-```
-With in on the inside of the values array
-```
-1: {name: "metaregistrar.nl.", value: 370038}
-2: {name: "transip.net.", value: 326939}
-3: {name: "firstfind.nl.", value: 266901}
-4: {name: "rzone.de.", value: 152024}
+boro: "BROOKLYN"
+incident_key: "138817042"
+jurisdiction_code: "0"
+latitude: "40.651465108"
+longitude: "-73.954236416"
+occur_date: "2014-09-21T00:00:00.000"
+occur_time: "23:15:00"
+precinct: "67"
+statistical_murder_flag: false
+vic_age_group: "25-44"
+vic_race: "BLACK"
+vic_sex: "M"
+x_coord_cd: "996949"
+y_coord_cd: "176623"
 ```
 
-## Visualization
+## Javascript templating
+This is the first time i used Javascript templating, and its really easy and usefull.
+Here is a example of my code
+
+```
+<div class="incident ${item.statistical_murder_flag ? "death" : "alive"}">
+<p>Casenumber:${item.incident_key}</p>
+<p>Location:${item.boro}</p>
+<p>Death:${item.statistical_murder_flag ? "Yes" : "No"}</p>
+<p>Victim age: ${item.vic_age_group}</p>
+<p>Precinct:${item.precinct}</p>
+${
+  item.statistical_murder_flag
+    ? '<img src="./public/img/rip.png" alt="">'
+    : ""
+}
+</div>
+```
+
 
 ## Authors
 
@@ -95,3 +109,5 @@ With in on the inside of the values array
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments and Thanks
+
+NYC's crime department

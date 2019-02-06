@@ -1,10 +1,18 @@
-
+body{
+  font-style: normal;
+  font-family: "raleway";
+}
 #list{
   flex-wrap: wrap;
   justify-content:center;
   align-self: flex;
   display:inline-flex;
     opacity: 1;
+
+}
+h1{
+  text-align: center;
+  color: white;
 
 }
 .incident{
@@ -16,6 +24,7 @@
   width: calc(33% - 40px);
   min-width: 150px;
   max-width: 500px;
+  position: relative;
 
   opacity: 1;
   -webkit-transition: opacity 200ms ease-in-out;
@@ -26,6 +35,16 @@
 }
 .incident p{
   width: 100%;
+}
+.death{
+  /* background-color: #ECD1D1; */
+}
+.death img{
+  width: 25px;
+  height: auto;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 /* svg > g:hover circle:not(:hover),
 svg > g:hover path:not(:hover) {

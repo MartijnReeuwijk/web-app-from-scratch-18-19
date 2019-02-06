@@ -29,21 +29,21 @@ function getData() {
     .then(data => {
       console.log(data);
       element = document.getElementById("list");
-      element.innerHTML = `
-      ${data
-        .map((item, i) =>
+      element.innerHTML = `${data.map((item, i) =>
           `
-    <div class="incident">
-    <p>case number:${item.incident_key}</p>
-    <p>location:${item.boro}</p>
-
-    <p>Death:${item.statistical_murder_flag ? 'Yes' : 'No'}</p>
+    <div class="incident ${item.statistical_murder_flag ? "death" : "alive"}">
+    <p>Casenumber:${item.incident_key}</p>
+    <p>Location:${item.boro}</p>
+    <p>Death:${item.statistical_murder_flag ? "Yes" : "No"}</p>
     <p>Victim age: ${item.vic_age_group}</p>
+    <p>Precinct:${item.precinct}</p>
+    ${
+      item.statistical_murder_flag
+        ? '<img src="./public/img/rip.png" alt="">'
+        : ""
+    }
     </div>
-  `.trim()
-        )
-        .join("")}
-`;
+  `.trim()).join("")}`;
     })
     .catch(err => {
       console.log(err);
