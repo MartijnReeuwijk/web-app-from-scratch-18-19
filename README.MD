@@ -1,4 +1,4 @@
-# NYC Shootings
+# NYC gun incidents
 
 Here is the data from the NYC police api related to shootings in New york city
 
@@ -53,7 +53,19 @@ To run the Prettier use the code below
 ## Data formating
 
 The data from the API is very clear and easy to use underneath this is an example of the API's output.
-It doesnt need any changing for the data i'am going to use.
+It doesn't need any changing for the data i'am going to use.
+
+### Data Fetching
+I use a fetch request go get the data for the app.
+```
+fetch("https://data.cityofnewyork.us/resource/9895-df76.json")
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+    console.log(data)
+  }
+```
 
 ### Data output example
 ##### Standard use object

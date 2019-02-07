@@ -29,7 +29,8 @@ function getData() {
     .then(data => {
       console.log(data);
       element = document.getElementById("list");
-      element.innerHTML = `${data.map((item, i) =>
+      element.innerHTML = `${data
+        .map(item =>
           `
     <div class="incident ${item.statistical_murder_flag ? "death" : "alive"}">
     <p>Casenumber:${item.incident_key}</p>
@@ -39,15 +40,29 @@ function getData() {
     <p>Precinct:${item.precinct}</p>
     ${
       item.statistical_murder_flag
-        ? '<img src="./public/img/rip.png" alt="">'
+        ? '<img class="spinlol" id="spinlol" src="./public/img/rip.png" alt="">'
         : ""
     }
     </div>
-  `.trim()).join("")}`;
+  `.trim()
+        )
+        .join("")}`;
     })
+    .then(() => {
+      document
+        .getElementById("spinlol")
+        .addEventListener("mouseover", function() {
+          var audio = new Audio(
+            "https://www.soundboard.com/handler/DownLoadTrack.ashx?cliptitle=Kermit+Suicide&filename=23/235117-daf52696-6d89-415b-b2e7-9a87c2cba17f.mp3"
+          );
+          audio.play();
+        });
+    })
+
     .catch(err => {
       console.log(err);
     });
 }
 
+// document.getElementsByClassName('className')
 getData();
