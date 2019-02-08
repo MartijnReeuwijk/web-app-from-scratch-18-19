@@ -2,8 +2,8 @@
 
 Here is the data from the NYC police api related to shootings in New york city
 # Demo link
-[DEMO](https://martijnreeuwijk.github.io/web-app-from-scratch-18-19/week1/
-)
+[DEMO](https://martijnreeuwijk.github.io/web-app-from-scratch-18-19/week1/)
+
 # Tabel of content
 - [Getting Started](#getting-started)
 - [Prerequisites](#prerequisites)
@@ -59,7 +59,7 @@ It doesn't need any changing for the data i'am going to use.
 
 ### Data Fetching
 I use a fetch request go get the data for the app.
-```
+``js
 fetch("https://data.cityofnewyork.us/resource/9895-df76.json")
   .then(response => {
     return response.json();
@@ -73,7 +73,7 @@ fetch("https://data.cityofnewyork.us/resource/9895-df76.json")
 ##### Standard use object
 This is an example on how the data looks.
 Not all the data is present in all the different cases.
-```
+``js
 boro: "BROOKLYN"
 incident_key: "138817042"
 jurisdiction_code: "0"
@@ -95,7 +95,7 @@ This is the first time i used Javascript templating, and its really easy and use
 Here is a example of my code, this will generate all the items/lists.
 You can very easly
 
-```
+``js
 <div class="incident ${item.statistical_murder_flag ? "death" : "alive"}">
 <p>Casenumber:${item.incident_key}</p>
 <p>Location:${item.boro}</p>

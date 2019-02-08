@@ -51,7 +51,7 @@ function getData() {
     .then(() => {
       document
         .getElementById("spinlol")
-        .addEventListener("mouseover", function() {
+        .addEventListener("mouseover", () => {
           var audio = new Audio(
             "https://www.soundboard.com/handler/DownLoadTrack.ashx?cliptitle=Kermit+Suicide&filename=23/235117-daf52696-6d89-415b-b2e7-9a87c2cba17f.mp3"
           );
