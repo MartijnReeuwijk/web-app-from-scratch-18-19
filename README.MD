@@ -1,7 +1,9 @@
 # NYC gun incidents
 
 Here is the data from the NYC police api related to shootings in New york city
-
+# Demo link
+[DEMO](https://martijnreeuwijk.github.io/web-app-from-scratch-18-19/week1/
+)
 # Tabel of content
 - [Getting Started](#getting-started)
 - [Prerequisites](#prerequisites)
