@@ -24,38 +24,15 @@
 function getData() {
   fetch("https://data.cityofnewyork.us/resource/9895-df76.json")
     .then(response => {
-      return response.json();
+      response.json();
     })
     .then(data => {
-      console.log(data);
-      element = document.getElementById("list");
-      element.innerHTML = `${data
-        .map(item =>
-          `
-    <div class="incident ${item.statistical_murder_flag ? "death" : "alive"}">
-    <p>Casenumber:${item.incident_key}</p>
-    <p>Location:${item.boro}</p>
-    <p>Death:${item.statistical_murder_flag ? "Yes" : "No"}</p>
-    <p>Victim age: ${item.vic_age_group}</p>
-    <p>Precinct:${item.precinct}</p>
-    ${
-      item.statistical_murder_flag
-        ? '<img class="spinlol" id="spinlol" src="./public/img/rip.png" alt="">'
-        : ""
-    }
-    </div>
-  `.trim()
-        )
-        .join("")}`;
+      // Draw the site and main functions for the index page
+      drawDom();
     })
-
     .then(() => {
-      document.getElementById("spinlol").addEventListener("mouseover", () => {
-        var audio = new Audio(
-          "https://www.soundboard.com/handler/DownLoadTrack.ashx?cliptitle=Kermit+Suicide&filename=23/235117-daf52696-6d89-415b-b2e7-9a87c2cba17f.mp3"
-        );
-        audio.play();
-      });
+      // add functions that add interactions here
+      addUtils();
     })
 
     .catch(err => {
@@ -63,5 +40,36 @@ function getData() {
     });
 }
 
-// document.getElementsByClassName('className')
+function drawDom() {
+  element = document.getElementById("list");
+  // need to check the linter for this
+  element.innerHTML = `${data
+    .map(item =>
+      `
+<div class="incident ${item.statistical_murder_flag ? "death" : "alive"}">
+<p>Casenumber:${item.incident_key}</p>
+<p>Location:${item.boro}</p>
+<p>Death:${item.statistical_murder_flag ? "Yes" : "No"}</p>
+<p>Victim age: ${item.vic_age_group}</p>
+<p>Precinct:${item.precinct}</p>
+${
+  item.statistical_murder_flag
+    ? '<img class="spinlol" id="spinlol" src="./public/img/rip.png" alt="">'
+    : ""
+}
+</div>
+`.trim()
+    )
+    .join("")}`;
+} // drawDom
+
+function addUtils() {
+  document.getElementById("spinlol").addEventListener("mouseover", () => {
+    var audio = new Audio(
+      "https://www.soundboard.com/handler/DownLoadTrack.ashx?cliptitle=Kermit+Suicide&filename=23/235117-daf52696-6d89-415b-b2e7-9a87c2cba17f.mp3"
+    );
+    audio.play();
+  });
+} // addUtils
+
 getData();
