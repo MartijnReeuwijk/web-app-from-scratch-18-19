@@ -23,30 +23,43 @@
 
 function getData() {
   fetch("https://data.cityofnewyork.us/resource/9895-df76.json")
-    .then(response => {
-      response.json();
-    })
+    .then(response => response.json())
     .then(data => {
       // Draw the site and main functions for the index page
-      drawDom();
+      routie("allCases", () => {
+        drawDom(data);
+      });
+      routie(":incident", incident => {
+        dataFilter(incident, data);
+      });
     })
     .then(() => {
       // add functions that add interactions here
       addUtils();
     })
-
     .catch(err => {
       console.log(err);
     });
 }
 
-function drawDom() {
+function dataFilter(incident, data) {
+  console.log("inside dataFilter", incident);
+  var filteredData = data.map(key => {
+    if (key.incident_key === incident) {
+      // [] is needed for arrays and .map
+      key = [key];
+      drawDom(key);
+    }
+  });
+}
+
+function drawDom(data) {
   element = document.getElementById("list");
-  // need to check the linter for this
   element.innerHTML = `${data
     .map(item =>
       `
 <div class="incident ${item.statistical_murder_flag ? "death" : "alive"}">
+<a href="#${item.incident_key}">
 <p>Casenumber:${item.incident_key}</p>
 <p>Location:${item.boro}</p>
 <p>Death:${item.statistical_murder_flag ? "Yes" : "No"}</p>
@@ -57,6 +70,7 @@ ${
     ? '<img class="spinlol" id="spinlol" src="./public/img/rip.png" alt="">'
     : ""
 }
+</a>
 </div>
 `.trim()
     )
@@ -73,3 +87,4 @@ function addUtils() {
 } // addUtils
 
 getData();
+routie("allCases");
