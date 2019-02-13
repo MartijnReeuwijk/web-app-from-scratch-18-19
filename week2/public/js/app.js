@@ -21,47 +21,51 @@
 // x_coord_cd: "1009582"
 // y_coord_cd: "247224"
 
-function getData() {
-  fetch("https://data.cityofnewyork.us/resource/9895-df76.json")
-    .then(response => response.json())
-    .then(data => {
-      // Draw the site and main functions for the index page
-      routie("allCases", () => {
-        drawDom(data);
+!(function() {
+  function getData() {
+    fetch("https://data.cityofnewyork.us/resource/9895-df76.json")
+      .then(response => response.json())
+      .then(data => {
+        // Draw the site and main functions for the index page
+        routie("allCases", () => {
+          drawDom(data);
+        });
+        routie(":incident", incident => {
+          dataFilter(incident, data);
+        });
+        routie("bigMap", () => {
+          drawNewYorkMap(data);
+        });
+      })
+      .then(() => {
+        // add functions that add interactions here
+        addUtils();
+      })
+      .catch(err => {
+        console.log(err);
       });
-      routie(":incident", incident => {
-        dataFilter(incident, data);
-      });
-    })
-    .then(() => {
-      // add functions that add interactions here
-      addUtils();
-    })
-    .catch(err => {
-      console.log(err);
+  }
+
+  function dataFilter(incident, data) {
+    var filteredData = data.map(key => {
+      if (key.incident_key === incident) {
+        // [] is needed for arrays and .map
+        key = [key];
+        drawDom(key);
+        drawMap(key);
+      }
     });
-}
+  }
 
-function dataFilter(incident, data) {
-  var filteredData = data.map(key => {
-    if (key.incident_key === incident) {
-      // [] is needed for arrays and .map
-      key = [key];
-      drawDom(key);
-      drawMap(key);
-    }
-  });
-}
-
-function drawDom(data) {
-  element = document.getElementById("list");
-  element.innerHTML = `${data
-    .map(item =>
-      // need to change the prettier settings its going bad
-      `
+  function drawDom(data) {
+    element = document.getElementById("list");
+    element.innerHTML = `${data
+      .map(item =>
+        // need to change the prettier settings its going bad
+        `
 <div class="incident ${
-        item.statistical_murder_flag ? "death" : "alive"
-      } borderRadius">
+          item.statistical_murder_flag ? "death" : "alive"
+        } borderRadius">
 <a href="#${item.incident_key}">
 <p>Casenumber:${item.incident_key}</p>
 <p>Location:${item.boro}</p>
@@ -76,56 +80,42 @@ ${
 </a>
 </div>
 `.trim()
-    )
-    .join("")}`;
-  // get genderd victims
-  drawDeathlyIncidents(data);
-} // drawDom
+      )
+      .join("")}`;
+    drawDeathlyIncidents(data);
+  } // drawDom
 
-function drawDeathlyIncidents(victim) {
-  element = document.getElementById("personKilled");
-  victim.map(victims => {
-    if (victims.statistical_murder_flag === true) {
-      element.innerHTML += `<div class="personKilledImg ${
-        victims.vic_sex === "M" ? "male" : "female"
-      }"></div>`;
-    } else {
-    }
-  });
-}
-function removeIncidents() {
-  element = document.getElementById("personKilled");
-  element.innerHTML = ``;
-}
+  function drawDeathlyIncidents(victim) {
+    element = document.getElementById("personKilled");
+    victim.map(victims => {
+      if (victims.statistical_murder_flag === true) {
+        element.innerHTML += `<div class="personKilledImg ${
+          victims.vic_sex === "M" ? "male" : "female"
+        }"></div>`;
+      } else {
+      }
+    });
+  }
+  function removeIncidents() {
+    element = document.getElementById("personKilled");
+    element.innerHTML = ``;
+  }
 
-function drawMap(victim) {
-  removeIncidents();
-  map = document.getElementById("list");
-  map.innerHTML += `
+  function drawMap(victim) {
+    removeIncidents();
+    map = document.getElementById("list");
+    map.innerHTML += `
 <div class="map" id="map"></div>
   `;
-  initMap(victim);
-}
+    initMap(victim);
+  }
 
-function addUtils() {
-  document.getElementById("spinlol").addEventListener("mouseover", () => {
-    var audio = new Audio(
-      "https://www.soundboard.com/handler/DownLoadTrack.ashx?cliptitle=Kermit+Suicide&filename=23/235117-daf52696-6d89-415b-b2e7-9a87c2cba17f.mp3"
-    );
-    audio.play();
-  });
-} // addUtils
+  function drawNewYorkMap(victim) {
+    console.log("test boi's");
+  }
 
-getData();
-routie("allCases");
+  function addUtils() {} // addUtils
 
-// Old gender code
-// if (victims.statistical_murder_flag === true && victims.vic_sex === "M") {
-//   element.innerHTML += `<div class="personKilledImg male"></div>`;
-// } else if (
-//   victims.statistical_murder_flag === true &&
-//   victims.vic_sex === "F"
-// ) {
-//   element.innerHTML += `<div class="personKilledImg female"></div>`;
-// } else {
-// }
+  getData();
+  routie("allCases");
+})();

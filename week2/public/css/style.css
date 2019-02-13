@@ -161,10 +161,6 @@ a:hover {
   background-image: url("../img/female.svg");
 }
 
-.spinlol:hover {
-  -webkit-animation: spin 250ms infinite linear;
-}
-
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
