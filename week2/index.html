@@ -9,15 +9,34 @@
     <main class="main">
       <article>
         <h1>NYC gun incidents</h1>
-        <p>
+        <h5>
           Below are are the all the recorded gun incidents from NYC and the
           NYPD.
-        </p>
+        </h5>
         <p></p>
+        <div class="button backbutton borderRadius">
+          <a href="#allCases">Terug</a>
+        </div>
+        <aside class="deaths">
+          <h2>Deadly incidents</h2>
+          <div id="personKilled"></div>
+        </aside>
+        <!-- <div class="buttonsHolders">
+          <div class="button borderRadius"><p>Death filter</p></div>
+          <div class="button borderRadius"><p>Filter</p></div>
+        </div> -->
       </article>
       <div id="list"></div>
     </main>
   </body>
   <script type="text/javascript" src="./public/js/routie.js"></script>
   <script type="text/javascript" src="./public/js/app.js"></script>
+  <script type="text/javascript" src="./public/js/map.js"></script>
+
+  <!-- Map api need to add api -->
+  <script
+    async
+    defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWwwBMpHYGzso-GSVeGT8vL1nMRVeBEpI"
+  ></script>
 </html>

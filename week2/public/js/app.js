@@ -43,12 +43,12 @@ function getData() {
 }
 
 function dataFilter(incident, data) {
-  console.log("inside dataFilter", incident);
   var filteredData = data.map(key => {
     if (key.incident_key === incident) {
       // [] is needed for arrays and .map
       key = [key];
       drawDom(key);
+      drawMap(key);
     }
   });
 }
@@ -57,8 +57,11 @@ function drawDom(data) {
   element = document.getElementById("list");
   element.innerHTML = `${data
     .map(item =>
+      // need to change the prettier settings its going bad
       `
-<div class="incident ${item.statistical_murder_flag ? "death" : "alive"}">
+<div class="incident ${
+        item.statistical_murder_flag ? "death" : "alive"
+      } borderRadius">
 <a href="#${item.incident_key}">
 <p>Casenumber:${item.incident_key}</p>
 <p>Location:${item.boro}</p>
@@ -75,7 +78,34 @@ ${
 `.trim()
     )
     .join("")}`;
+  // get genderd victims
+  drawDeathlyIncidents(data);
 } // drawDom
+
+function drawDeathlyIncidents(victim) {
+  element = document.getElementById("personKilled");
+  victim.map(victims => {
+    if (victims.statistical_murder_flag === true) {
+      element.innerHTML += `<div class="personKilledImg ${
+        victims.vic_sex === "M" ? "male" : "female"
+      }"></div>`;
+    } else {
+    }
+  });
+}
+function removeIncidents() {
+  element = document.getElementById("personKilled");
+  element.innerHTML = ``;
+}
+
+function drawMap(victim) {
+  removeIncidents();
+  map = document.getElementById("list");
+  map.innerHTML += `
+<div class="map" id="map"></div>
+  `;
+  initMap(victim);
+}
 
 function addUtils() {
   document.getElementById("spinlol").addEventListener("mouseover", () => {
@@ -88,3 +118,14 @@ function addUtils() {
 
 getData();
 routie("allCases");
+
+// Old gender code
+// if (victims.statistical_murder_flag === true && victims.vic_sex === "M") {
+//   element.innerHTML += `<div class="personKilledImg male"></div>`;
+// } else if (
+//   victims.statistical_murder_flag === true &&
+//   victims.vic_sex === "F"
+// ) {
+//   element.innerHTML += `<div class="personKilledImg female"></div>`;
+// } else {
+// }
