@@ -2,7 +2,7 @@
 
 Here is the data from the NYC police api related to shootings in New york city
 
-![Drag Racing](.jpg)
+![Drag Racing](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/demo.png)
 
 # Tabel of content
 
