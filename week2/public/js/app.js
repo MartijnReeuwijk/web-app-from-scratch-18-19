@@ -22,6 +22,8 @@
 // y_coord_cd: "247224"
 
 !(function() {
+  // iife
+
   function getData() {
     fetch("https://data.cityofnewyork.us/resource/9895-df76.json")
       .then(response => response.json())
@@ -30,11 +32,12 @@
         routie("allCases", () => {
           drawDom(data);
         });
-        routie(":incident", incident => {
-          dataFilter(incident, data);
-        });
         routie("bigMap", () => {
-          drawNewYorkMap(data);
+          getNewYorkMap(data);
+        });
+        routie(":incident", incident => {
+          console.log(incident);
+          dataFilter(incident, data);
         });
       })
       .then(() => {
@@ -100,18 +103,29 @@ ${
     element = document.getElementById("personKilled");
     element.innerHTML = ``;
   }
-
-  function drawMap(victim) {
-    removeIncidents();
+  function removeVictims() {
+    element = document.getElementById("list");
+    element.innerHTML = ``;
+  }
+  function addMap() {
     map = document.getElementById("list");
     map.innerHTML += `
 <div class="map" id="map"></div>
   `;
+  }
+
+  function drawMap(victim) {
+    removeIncidents();
+    addMap();
     initMap(victim);
   }
 
-  function drawNewYorkMap(victim) {
-    console.log("test boi's");
+  function getNewYorkMap(victim) {
+    console.log("Get big map");
+    removeIncidents();
+    removeVictims();
+    addMap();
+    drawNewYorkMap(victim);
   }
 
   function addUtils() {} // addUtils
