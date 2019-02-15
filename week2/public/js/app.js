@@ -23,7 +23,6 @@
 
 !(function() {
   // iife
-
   function getData() {
     fetch("https://data.cityofnewyork.us/resource/9895-df76.json")
       .then(response => response.json())
@@ -48,7 +47,6 @@
         console.log(err);
       });
   }
-
   function dataFilter(incident, data) {
     var filteredData = data.map(key => {
       if (key.incident_key === incident) {
@@ -59,7 +57,6 @@
       }
     });
   }
-
   function drawDom(data) {
     element = document.getElementById("list");
     element.innerHTML = `${data
@@ -87,7 +84,6 @@ ${
       .join("")}`;
     drawDeathlyIncidents(data);
   } // drawDom
-
   function drawDeathlyIncidents(victim) {
     element = document.getElementById("personKilled");
     victim.map(victims => {
@@ -113,13 +109,11 @@ ${
 <div class="map" id="map"></div>
   `;
   }
-
   function drawMap(victim) {
     removeIncidents();
     addMap();
     initMap(victim);
   }
-
   function getNewYorkMap(victim) {
     console.log("Get big map");
     removeIncidents();
@@ -127,7 +121,6 @@ ${
     addMap();
     drawNewYorkMap(victim);
   }
-
   function addUtils() {} // addUtils
 
   getData();

@@ -1,8 +1,11 @@
 # NYC Shootings
 
 Here is the data from the NYC police api related to shootings in New york city
+The demo has interactions and shows the shooting incidents.
+The male/female characters represent the fatal shootings based on gender
 
-![Drag Racing](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/demo.png)
+![Maps API](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/demo.png)
+[Demo](https://martijnreeuwijk.github.io/web-app-from-scratch-18-19/week2/#allCases) - Live demo
 
 # Tabel of content
 
@@ -115,6 +118,11 @@ routie(":incident", incident => {
   dataFilter(incident, data);
 });
 ```
+
+## Diagrams
+
+`Need to fix the Diagrams digitally i have them analog`
+I used an actor diagram to order and compartmentalize the functions and flow of the app. It's useful to keep order in the code and it structure, By making you think ahead.
 
 ## Authors
 
