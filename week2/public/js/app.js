@@ -37,12 +37,13 @@
     home: function() {
       console.log("Stap 1");
       api.get();
-      // console.log(data);
     },
     victimPage: function(id) {
       render.removeIncidents();
       render.removeVictims();
-      render.addMap(victims);
+      // render.drawDoms();
+      filterData.filter(id);
+      // render.addMap(victims);
     }
   };
 
@@ -51,10 +52,6 @@
       fetch("https://data.cityofnewyork.us/resource/9895-df76.json")
         .then(response => response.json())
         .then(data => this.store(data));
-
-      // .then(data => {
-      //   route.home(data);
-      // });
     },
     store: function(data) {
       localStorage.setItem("victims", JSON.stringify(data));
@@ -62,10 +59,12 @@
       if (storedData) {
         savedData = JSON.parse(storedData);
       }
+      else {
+        savedData = fetch("https://data.cityofnewyork.us/resource/9895-df76.json");
+      }
       render.drawDom(savedData);
     },
     load: function() {
-      // this.get(da);
       console.log(data);
       render.drawDom(data);
     }
@@ -98,9 +97,8 @@
         )
         .join("")}`;
       // drawDeathlyIncidents(data);
-      this.drawDeathlyIncidents(data);
+      // this.drawDeathlyIncidents(data);
     },
-
     drawDeathlyIncidents: function(victim) {
       console.log("drawDeathlyIncidents");
       element = document.getElementById("personKilled");
@@ -114,7 +112,6 @@
         }
       });
     },
-
     removeIncidents: function() {
       // Remove the correct element
       console.log("remove incidents");
@@ -130,7 +127,6 @@
     },
     addMap: function() {
       console.log("addmap");
-
       map = document.getElementById("list");
       map.innerHTML += `
     <div class="map" id="map"></div>
@@ -139,29 +135,44 @@
   };
 
   var filterData = {
-    filter: function() {
+    filter: function(filterKey) {
       console.log("filter");
-      var newData = api.get();
-      var filteredData = newData.map(key => {
-        if (key.incident_key === incident) {
-          return [key];
+      // fuck nameing end my life plz
+      var victim = [];
+      var filteredData = savedData.map(key => {
+        if (key.incident_key === filterKey) {
+          victim.push(key)
         }
       });
+      console.log(victim);
+      // render.addMap(victim);
+      makeMap.makeMapSingleMarker(victim);
+      // render.drawDom(victim);
+
+      // i dont want to render in here
     }
   };
-  var mapMan = {
-    makeMapSingleMarker: function() {
-      render.removeIncidents;
-      render.addMap;
+
+  var makeMap = {
+    makeMapSingleMarker: function(victim) {
+      console.log("makeMapSingleMarker");
+      render.addMap()
       // This is a function form Guugle
       initMap(victim);
     },
     makeMapMultyMarker: function() {
-      render.removeIncidents;
-      render.addMap;
+      console.log("makeMapMultyMarker");
+      render.removeIncidents();
+      render.addMap();
       drawNewYorkMap(victim);
     }
   };
-  console.log("load");
+  // console.log("load");
+
+  routie(":id", function(id) {
+    console.log(id);
+    route.victimPage(id);
+  });
   route.home();
 })();
+// Hoe is OOP duidelijker dan Functions
