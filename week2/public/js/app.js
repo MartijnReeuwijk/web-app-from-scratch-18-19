@@ -58,16 +58,11 @@
       var storedData = localStorage.getItem("victims");
       if (storedData) {
         savedData = JSON.parse(storedData);
+      } else {
+        savedData = fetch(
+          "https://data.cityofnewyork.us/resource/9895-df76.json"
+        );
       }
-<<<<<<< HEAD
-      // var savedData = data;
-      console.log(savedData);
-      console.log("stap 5");
-=======
-      else {
-        savedData = fetch("https://data.cityofnewyork.us/resource/9895-df76.json");
-      }
->>>>>>> 79ec527f2dd31c893d6ca9e273ff7fda7c41b122
       render.drawDom(savedData);
     },
     load: function() {
@@ -147,29 +142,22 @@
       var victim = [];
       var filteredData = savedData.map(key => {
         if (key.incident_key === filterKey) {
-          victim.push(key)
+          victim.push(key);
         }
       });
-<<<<<<< HEAD
-
-      // console.log(filteredData);
-      // render.drawDom(filteredData);
-      // render.drawMap(filteredData);
-=======
       console.log(victim);
       // render.addMap(victim);
       makeMap.makeMapSingleMarker(victim);
       // render.drawDom(victim);
 
       // i dont want to render in here
->>>>>>> 79ec527f2dd31c893d6ca9e273ff7fda7c41b122
     }
   };
 
   var makeMap = {
     makeMapSingleMarker: function(victim) {
       console.log("makeMapSingleMarker");
-      render.addMap()
+      render.addMap();
       // This is a function form Guugle
       initMap(victim);
     },
