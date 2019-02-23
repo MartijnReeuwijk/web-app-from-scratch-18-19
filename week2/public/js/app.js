@@ -62,6 +62,9 @@
       if (storedData) {
         savedData = JSON.parse(storedData);
       }
+      // var savedData = data;
+      console.log(savedData);
+      console.log("stap 5");
       render.drawDom(savedData);
     },
     load: function() {
@@ -147,6 +150,10 @@
           return [key];
         }
       });
+
+      // console.log(filteredData);
+      // render.drawDom(filteredData);
+      // render.drawMap(filteredData);
     }
   };
   var mapMan = {
