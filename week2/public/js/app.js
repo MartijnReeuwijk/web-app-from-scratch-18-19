@@ -63,10 +63,10 @@
           "https://data.cityofnewyork.us/resource/9895-df76.json"
         );
       }
-      render.drawDom(savedData);
+      api.load(savedData);
     },
-    load: function() {
-      console.log(data);
+    load: function(data) {
+      // console.log(data);
       render.drawDom(data);
     }
   };
@@ -97,10 +97,11 @@
       `.trim()
         )
         .join("")}`;
-      // drawDeathlyIncidents(data);
+      render.drawDeathlyIncidents(data);
       // this.drawDeathlyIncidents(data);
     },
     drawDeathlyIncidents: function(victim) {
+      console.log(victim);
       console.log("drawDeathlyIncidents");
       element = document.getElementById("personKilled");
       victim.map(victims => {
@@ -138,7 +139,6 @@
   var filterData = {
     filter: function(filterKey) {
       console.log("filter");
-      // fuck nameing end my life plz
       var victim = [];
       var filteredData = savedData.map(key => {
         if (key.incident_key === filterKey) {
