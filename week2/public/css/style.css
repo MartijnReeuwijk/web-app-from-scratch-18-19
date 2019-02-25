@@ -59,7 +59,18 @@ a:hover {
   margin: 0 auto;
   line-height: 50px;
 }
-
+.loader {
+  width: 150px;
+  height: 150px;
+  background-image: url("../img/loading.gif");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.loader p {
+  text-align: center;
+  color: white;
+}
 .backbutton {
   width: 100px;
   height: 50px;

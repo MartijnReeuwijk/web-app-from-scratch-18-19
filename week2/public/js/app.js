@@ -49,6 +49,7 @@
 
   var api = {
     get: function() {
+      render.load();
       fetch("https://data.cityofnewyork.us/resource/9895-df76.json")
         .then(response => response.json())
         .then(data => this.store(data));
@@ -66,12 +67,20 @@
       api.load(savedData);
     },
     load: function(data) {
-      // console.log(data);
+      render.loadremove();
       render.drawDom(data);
     }
   };
 
   var render = {
+    load: function() {
+      element = document.getElementById("list");
+      element.innerHTML = `<div class="loader"><p>Aan het laden</p></div>`;
+    },
+    loadremove: function() {
+      element = document.getElementById("list");
+      element.innerHTML = ``;
+    },
     drawDom: function(data) {
       console.log("draw dom");
       element = document.getElementById("list");
@@ -138,17 +147,25 @@
 
   var filterData = {
     filter: function(filterKey) {
+      if (localStorage.getItem("victims")) {
+        savedData = JSON.parse(localStorage.getItem("victims"));
+      } else {
+        savedData = fetch(
+          "https://data.cityofnewyork.us/resource/9895-df76.json"
+        );
+      }
       console.log("filter");
+      console.log(JSON.parse(localStorage.getItem("victims")));
       var victim = [];
       var filteredData = savedData.map(key => {
         if (key.incident_key === filterKey) {
           victim.push(key);
         }
       });
-      console.log(victim);
-      // render.addMap(victim);
+      // console.log(localstorage);
+      // hier moet een of anderen check die checked of local er is voor die filter
+      render.drawDom(victim);
       makeMap.makeMapSingleMarker(victim);
-      // render.drawDom(victim);
 
       // i dont want to render in here
     }
