@@ -48,9 +48,12 @@
   };
 
   var api = {
+    url: function() {
+      return "https://data.cityofnewyork.us/resource/9895-df76.json";
+    },
     get: function() {
       render.load();
-      fetch("https://data.cityofnewyork.us/resource/9895-df76.json")
+      fetch(api.url())
         .then(response => response.json())
         .then(data => this.store(data));
     },
@@ -60,9 +63,7 @@
       if (storedData) {
         savedData = JSON.parse(storedData);
       } else {
-        savedData = fetch(
-          "https://data.cityofnewyork.us/resource/9895-df76.json"
-        );
+        savedData = fetch(api.url());
       }
       api.load(savedData);
     },
@@ -150,12 +151,8 @@
       if (localStorage.getItem("victims")) {
         savedData = JSON.parse(localStorage.getItem("victims"));
       } else {
-        savedData = fetch(
-          "https://data.cityofnewyork.us/resource/9895-df76.json"
-        );
+        savedData = fetch(api.url());
       }
-      console.log("filter");
-      console.log(JSON.parse(localStorage.getItem("victims")));
       var victim = [];
       var filteredData = savedData.map(key => {
         if (key.incident_key === filterKey) {
