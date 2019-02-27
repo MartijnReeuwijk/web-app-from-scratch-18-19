@@ -1,10 +1,16 @@
-# NYC gun incidents
+![Demo pic](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/demopic.png)
+
+# NYC Shootings
 
 Here is the data from the NYC police api related to shootings in New york city
-# Demo link
-[DEMO](https://martijnreeuwijk.github.io/web-app-from-scratch-18-19/week1/)
+The demo has interactions and shows the shooting incidents.
+The male/female characters represent the fatal shootings based on gender
+
+![Maps API](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/demo.png)
+[Demo](https://martijnreeuwijk.github.io/web-app-from-scratch-18-19/week2/#allCases) - Live demo
 
 # Tabel of content
+
 - [Getting Started](#getting-started)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
@@ -12,8 +18,8 @@ Here is the data from the NYC police api related to shootings in New york city
 - [Linting](#linting)
 - [Build With](#build-with)
 - [Data formating](#data-formating)
-  * [Data output example](#data-output-example)
-      - [Standard use object](#standard-use-object)
+  - [Data output example](#data-output-example)
+    - [Standard use object](#standard-use-object)
 - [Javascript templating](#javascript-templating)
 - [Authors](#authors)
 - [License](#license)
@@ -27,15 +33,14 @@ These instructions will get you a copy of the project up and running on your loc
 
 You will need the following things properly installed on your computer.
 
--   [Git](https://git-scm.com/)
--   [Node.js](https://nodejs.org/) (with npm)
--   [Google Chrome](https://google.com/chrome/)
+- [Git](https://git-scm.com/)
+- [Google Chrome](https://google.com/chrome/)
 
 ## Installation
 
--   `git@github.com:MartijnReeuwijk/web-app-from-scratch-18-19.git`
--   `cd web-app-from-scratch-18-19`
--   `npm install`
+- `git@github.com:MartijnReeuwijk/web-app-from-scratch-18-19.git`
+- `cd web-app-from-scratch-18-19`
+- `npm install`
 
 ## Running
 
@@ -46,34 +51,26 @@ Local hosting is not needed.
 For linting i used CleanCss and Prettier
 To run the Prettier use the code below
 
--   `npm run clean`
+- `npm run clean`
 
 ## Build With
 
--   [Prettier](https://prettier.io/docs/en/options.html) - Prettier.io - Linter
+- [Routie](http://projects.jga.me/routie/) - routie for routing in the app
+- [Prettier](https://prettier.io/docs/en/options.html) - Prettier.io - Linter
 
 ## Data formating
 
 The data from the API is very clear and easy to use underneath this is an example of the API's output.
-It doesn't need any changing for the data i'am going to use.
-
-### Data Fetching
-I use a fetch request go get the data for the app.
-```js
-fetch("https://data.cityofnewyork.us/resource/9895-df76.json")
-  .then(response => {
-    return response.json();
-  })
-  .then(data => {
-    console.log(data)
-  }
-```
+It doesnt need any changing for the data i'am going to use.
 
 ### Data output example
+
 ##### Standard use object
+
 This is an example on how the data looks.
 Not all the data is present in all the different cases.
-```js
+
+```
 boro: "BROOKLYN"
 incident_key: "138817042"
 jurisdiction_code: "0"
@@ -91,11 +88,12 @@ y_coord_cd: "176623"
 ```
 
 ## Javascript templating
+
 This is the first time i used Javascript templating, and its really easy and usefull.
 Here is a example of my code, this will generate all the items/lists.
 You can very easly
 
-```js
+```
 <div class="incident ${item.statistical_murder_flag ? "death" : "alive"}">
 <p>Casenumber:${item.incident_key}</p>
 <p>Location:${item.boro}</p>
@@ -110,11 +108,35 @@ ${
 </div>
 ```
 
+## Routie
+
+Routie checkes for the numbers/text after the # sign and turns this into a parameter then i call the dataFilter() functions to return the selected object.
+Then i will render the page with the filterd data
+
+```
+routie(":incident", incident => {
+  console.log(incident);
+  dataFilter(incident, data);
+});
+```
+
+## Diagrams
+
+I used an actor diagram to order and compartmentalize the functions and flow of the app. It's useful to keep order in the code and it structure, By making you think ahead.
+
+### Actor Diagram
+
+![Actor-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/actor.png)
+
+### Interaction Diagram
+
+![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/interactionChart1.png)
+![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/interactionChart2.png)
+![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/interactionChart3.png)
 
 ## Authors
 
--   **Martijn Reeuwijk** - [MartijnReeuwijk](https://github.com/MartijnReeuwijk)
-
+- **Martijn Reeuwijk** - [MartijnReeuwijk](https://github.com/MartijnReeuwijk)
 
 ## License
 

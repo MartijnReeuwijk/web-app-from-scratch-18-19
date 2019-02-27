@@ -1,3 +1,5 @@
+![Demo pic](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/demopic.png)
+
 # NYC Shootings
 
 Here is the data from the NYC police api related to shootings in New york city
