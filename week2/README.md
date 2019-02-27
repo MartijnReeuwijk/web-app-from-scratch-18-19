@@ -32,7 +32,6 @@ These instructions will get you a copy of the project up and running on your loc
 You will need the following things properly installed on your computer.
 
 - [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/) (with npm)
 - [Google Chrome](https://google.com/chrome/)
 
 ## Installation
@@ -121,8 +120,17 @@ routie(":incident", incident => {
 
 ## Diagrams
 
-`Need to fix the Diagrams digitally i have them analog`
 I used an actor diagram to order and compartmentalize the functions and flow of the app. It's useful to keep order in the code and it structure, By making you think ahead.
+
+### Actor Diagram
+
+![Actor-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/actor.png)
+
+### Interaction Diagram
+
+![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/interactionChart1.png)
+![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/interactionChart2.png)
+![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/interactionChart3.png)
 
 ## Authors
 
