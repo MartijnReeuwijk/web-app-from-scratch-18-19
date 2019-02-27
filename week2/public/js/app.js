@@ -29,20 +29,21 @@
 //   },
 //   detail: function(id) {}
 // };
-
-!(function() {
+(function() {
   // iife
 
   var route = {
     home: function() {
       console.log("Stap 1");
+      // This needs to be water fall because i dont understand Async await yet so yea.
       api.get();
     },
     victimPage: function(id) {
+      let filteredData = filterData.filter(id);
       render.removeIncidents();
       render.removeVictims();
-      // render.drawDoms();
-      filterData.filter(id);
+      render.drawDom(filteredData);
+      makeMap.makeMapSingleMarker(filteredData);
       // render.addMap(victims);
     }
   };
@@ -74,18 +75,20 @@
   };
 
   var render = {
+    element: document.getElementById("list"),
     load: function() {
-      element = document.getElementById("list");
-      element.innerHTML = `<div class="loader"><p>Aan het laden</p></div>`;
+      //need to make this a
+
+      this.element.innerHTML = `<div class="loader"><p>Aan het laden</p></div>`;
     },
     loadremove: function() {
-      element = document.getElementById("list");
-      element.innerHTML = ``;
+      // element = document.getElementById("list");
+      this.element.innerHTML = ``;
     },
     drawDom: function(data) {
       console.log("draw dom");
-      element = document.getElementById("list");
-      element.innerHTML = `${data
+      // element = document.getElementById("list");
+      this.element.innerHTML = `${data
         .map(item =>
           `
       <div class="incident ${
@@ -134,13 +137,14 @@
     removeVictims: function() {
       // can this be one this?
       console.log("remove");
-      element = document.getElementById("list");
-      element.innerHTML = ``;
+      // element = document.getElementById("list");
+      this.element.innerHTML = ``;
     },
     addMap: function() {
       console.log("addmap");
-      map = document.getElementById("list");
-      map.innerHTML += `
+      // map = document.getElementById("list");
+
+      this.element.innerHTML += `
     <div class="map" id="map"></div>
       `;
     }
@@ -149,22 +153,15 @@
   var filterData = {
     filter: function(filterKey) {
       if (localStorage.getItem("victims")) {
-        savedData = JSON.parse(localStorage.getItem("victims"));
+        var savedData = JSON.parse(localStorage.getItem("victims"));
       } else {
-        savedData = fetch(api.url());
+        var savedData = fetch(api.url());
       }
-      var victim = [];
-      var filteredData = savedData.map(key => {
-        if (key.incident_key === filterKey) {
-          victim.push(key);
-        }
-      });
-      // console.log(localstorage);
-      // hier moet een of anderen check die checked of local er is voor die filter
-      render.drawDom(victim);
-      makeMap.makeMapSingleMarker(victim);
+      var filteredData = savedData.filter(
+        key => key.incident_key === filterKey
+      );
 
-      // i dont want to render in here
+      return filteredData;
     }
   };
 
