@@ -1,3 +1,5 @@
+![Demo pic](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/demopic.png)
+
 # NYC Shootings
 
 Here is the data from the NYC police api related to shootings in New york city
@@ -9,25 +11,19 @@ The male/female characters represent the fatal shootings based on gender
 
 # Tabel of content
 
-- [NYC Shootings](#nyc-shootings)
-- [Tabel of content](#tabel-of-content)
-  - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Running](#running)
-  - [Linting](#linting)
-  - [Build With](#build-with)
-  - [Data formating](#data-formating)
-    - [Data output example](#data-output-example)
-      - [Standard use object](#standard-use-object)
-  - [Javascript templating](#javascript-templating)
-  - [Routie](#routie)
-  - [Diagrams](#diagrams)
-    - [Actor Diagram](#actor-diagram)
-    - [Interaction Diagram](#interaction-diagram)
-  - [Authors](#authors)
-  - [License](#license)
-  - [Acknowledgments and Thanks](#acknowledgments-and-thanks)
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running](#running)
+- [Linting](#linting)
+- [Build With](#build-with)
+- [Data formating](#data-formating)
+  - [Data output example](#data-output-example)
+    - [Standard use object](#standard-use-object)
+- [Javascript templating](#javascript-templating)
+- [Authors](#authors)
+- [License](#license)
+- [Acknowledgments and Thanks](#acknowledgments-and-thanks)
 
 ## Getting Started
 
@@ -130,19 +126,13 @@ I used an actor diagram to order and compartmentalize the functions and flow of 
 
 ### Actor Diagram
 
-The actor diagram shows all functions inside the app
-![Actor-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/oop/week2/public/img/actor.png)
+![Actor-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/actor.png)
 
 ### Interaction Diagram
 
-These are the interaction diagram they will show what the app will do when people click on it.
-The first 2 are based on the main page that will load all data for the first time.
-
-![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/oop/week2/public/img/interactionChart1.png)
-![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/oop/week2/public/img/interactionChart2.png)
-This image will show how the Detail page will be loaded either from localstorage or from a new Api fetch.
-The data will be filterd and then the Render function will render the page.
-![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/oop/week2/public/img/interactionChart3.png)
+![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/interactionChart1.png)
+![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/interactionChart2.png)
+![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/interactionChart3.png)
 
 ## Authors
 
