@@ -7,7 +7,7 @@ The demo has interactions and shows the shooting incidents.
 The male/female characters represent the fatal shootings based on gender
 
 ![Maps API](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/demo.png)
-[Demo](https://martijnreeuwijk.github.io/web-app-from-scratch-18-19/week2/#allCases) - Live demo
+[Demo](https://martijnreeuwijk.github.io/web-app-from-scratch-18-19/week2/) - Live demo
 
 # Tabel of content
 
