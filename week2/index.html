@@ -15,12 +15,12 @@
         </h5>
         <p></p>
         <div class="button backbutton borderRadius">
-          <a href="" onclick="route.home();">Terug</a>
+          <a href="" onclick="routie()">Terug</a>
         </div>
         <!-- <div class="button backbutton borderRadius">
           <a href="#bigMap">Big map</a>
         </div> -->
-        <aside class="deaths">
+        <aside id="deaths" class="deaths borderRadius">
           <h2>Deadly incidents</h2>
           <div id="personKilled"></div>
         </aside>
@@ -29,14 +29,15 @@
           <div class="button borderRadius"><p>Filter</p></div>
         </div> -->
       </article>
-      <div id="list"></div>
+      <div id="list">
+        <div class="loader"><p>Aan het laden</p></div>
+      </div>
     </main>
   </body>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWwwBMpHYGzso-GSVeGT8vL1nMRVeBEpI"></script>
-
   <script type="text/javascript" src="./public/js/routie.js"></script>
-  <script type="text/javascript" src="./public/js/app.js"></script>
   <script type="text/javascript" src="./public/js/map.js"></script>
+  <script type="text/javascript" src="./public/js/app2.js"></script>
 
   <!-- Map api need to add api -->
 </html>

@@ -1,26 +1,34 @@
 body {
-  background: linear-gradient(120deg, #6a11cb 0%, #2575fc 100%);
-  background-size: 400% 400%;
+  /* background: linear-gradient(120deg, #6a11cb 0%, #2575fc 100%);
+  background-size: 400% 400%; */
   font-family: "raleway";
   font-style: normal;
-  -moz-animation: AnimationName 30s ease infinite;
+  background-color: #e2e1e0;
+  color: black;
+  /* -moz-animation: AnimationName 30s ease infinite;
   -webkit-animation: AnimationName 30s ease infinite;
-  animation: AnimationName 30s ease infinite;
+  animation: AnimationName 30s ease infinite; */
 }
-
+article {
+  /* display: flex; */
+  width: 75%;
+  /* align-self: flex; */
+  /* flex-wrap: wrap; */
+  /* justify-content: center; */
+  margin: 0 auto;
+}
 aside {
-  color: white;
   display: flex;
   width: 100%;
   opacity: 1;
   align-self: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0 auto;
 }
 
 h1,
 h5 {
-  color: white;
   text-align: center;
 }
 
@@ -31,7 +39,10 @@ a:hover {
   text-decoration: none;
   font-style: normal;
 }
-
+.shadowHover:hover {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 .borderRules {
   border-radius: 5px;
 }
@@ -107,7 +118,10 @@ a:hover {
   flex-wrap: wrap;
   justify-content: center;
 }
-
+.deaths {
+  background-color: white;
+  margin: 10px 0;
+}
 .incident {
   position: relative;
   width: calc(33% - 40px);
@@ -154,11 +168,15 @@ a:hover {
   -webkit-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
 }
-
+#personKilled {
+  display: inline-flex;
+  align-self: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .personKilledImg {
   width: 25px;
   height: 50px;
-  display: inline-flex;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

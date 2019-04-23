@@ -63,6 +63,7 @@
       var storedData = localStorage.getItem("victims");
       if (storedData) {
         savedData = JSON.parse(storedData);
+        console.log(savedData);
       } else {
         savedData = fetch(api.url());
       }
@@ -77,17 +78,12 @@
   var render = {
     element: document.getElementById("list"),
     load: function() {
-      //need to make this a
-
       this.element.innerHTML = `<div class="loader"><p>Aan het laden</p></div>`;
     },
     loadremove: function() {
-      // element = document.getElementById("list");
       this.element.innerHTML = ``;
     },
     drawDom: function(data) {
-      console.log("draw dom");
-      // element = document.getElementById("list");
       this.element.innerHTML = `${data
         .map(item =>
           `
