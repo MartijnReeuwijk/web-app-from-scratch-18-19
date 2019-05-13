@@ -39,6 +39,7 @@
       render.drawDeathlyIncidents(this.data);
     },
     // id for the route/victim
+    // Needed to switch to function() instead of () => {} because something with the THIS select.
     victim: function(id) {
       let filterData = dataFunctions.filter(id);
       console.log(id[0]);
