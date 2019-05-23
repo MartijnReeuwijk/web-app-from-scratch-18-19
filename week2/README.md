@@ -126,13 +126,12 @@ I used an actor diagram to order and compartmentalize the functions and flow of 
 
 ### Actor Diagram
 
-![Actor-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/actor.png)
+![Actor-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/actor.jpg)
 
 ### Interaction Diagram
 
-![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/interactionChart1.png)
-![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/interactionChart2.png)
-![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/interactionChart3.png)
+![Interaction-Diagram](https://github.com/MartijnReeuwijk/web-app-from-scratch-18-19/blob/master/week2/public/img/interactionChart1.jpg)
+
 
 ## Authors
 
